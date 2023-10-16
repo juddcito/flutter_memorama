@@ -26,10 +26,12 @@ class HomeScreen extends StatelessWidget {
             children: [
         
               // logo
-              ClipRRect(
-                child: Image.asset(
-                  'assets/cherry.png',
-                  scale: 2.5,
+              FadeInRight(
+                child: ClipRRect(
+                  child: Image.asset(
+                    'assets/cherry.png',
+                    scale: 2.5,
+                  ),
                 ),
               ),
 

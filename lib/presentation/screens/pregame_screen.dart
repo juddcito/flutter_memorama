@@ -1,45 +1,79 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_memorama/presentation/screens/game_screen.dart';
 
-class PregameScreen extends StatelessWidget {
+class PregameScreen extends StatefulWidget {
   const PregameScreen({super.key});
 
   @override
+  State<PregameScreen> createState() => _PregameScreenState();
+}
+
+class _PregameScreenState extends State<PregameScreen> {
+
+  int selectedValue = 8;
+
+  @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cantidad de pares'),
+        centerTitle: true,
       ),
-      body: Column(
-        children: [
-          RadioListTile(
-            title: const Text('8 pares'),
-            value: 1,
-            groupValue: 1,
-            onChanged:(value) {
-              
-            },
-          ),
-          RadioListTile(
-            title: const Text('10 pares'),
-            value: 1,
-            groupValue: 1,
-            onChanged:(value) {
-              
-            },
-          ),
-          RadioListTile(
-            title: const Text('12 pares'),
-            value: 1,
-            groupValue: 1,
-            onChanged:(value) {
-              
-            },
-          ),
-
-          FilledButton.tonal(onPressed: (){}, child: Text('Empezar'))
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Card(
+              child: RadioListTile(
+                title: const Text('8 pares'),
+                value: 8,
+                groupValue: selectedValue,
+                onChanged:(value) {
+                  setState(() {
+                    selectedValue = value as int;
+                  });
+                },
+              ),
+            ),
+            Card(
+              child: RadioListTile(
+                title: const Text('10 pares'),
+                value: 10,
+                groupValue: selectedValue,
+                onChanged:(value) {
+                  setState(() {
+                    selectedValue = value as int;
+                  });
+                },
+              ),
+            ),
+            Card(
+              child: RadioListTile(
+                title: const Text('12 pares'),
+                value: 12,
+                groupValue: selectedValue,
+                onChanged:(value) {
+                  setState(() {
+                    selectedValue = value as int;
+                  });
+                },
+              ),
+            ),
+            SizedBox(height: 25,),
+            Container(
+              width: double.infinity,
+              child: FilledButton.tonalIcon(onPressed: (){
+               Navigator.push(context, MaterialPageRoute(builder:(context) => GameScreen(numPares: selectedValue)));
+                },
+                icon: Icon(Icons.start),
+                label: const Text('Empezar')
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
