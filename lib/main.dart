@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_memorama/presentation/screens/home/home_screen.dart';
+import 'package:flutter_memorama/config/app_theme.dart';
+import 'presentation/screens/home_screen.dart';
+
 
 void main() {
   runApp(const MainApp());
@@ -10,9 +12,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: AppTheme().getTheme(),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen()
+      home: const HomeScreen()
     );
   }
 }
