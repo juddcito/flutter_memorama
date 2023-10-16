@@ -16,22 +16,22 @@ class GameScreen extends StatefulWidget {
 
 class _GameScreenState extends State<GameScreen> {
 
-  List images = [];
-  List<String> selectedCards = [];
-  List<bool> listBooleans = [];
-  int seleccion = 1;
-  int indexCartaUno = 0;
-  int indexCartaDos = 0;
-  String cartaUno = '';
-  String cartaDos = '';
+  List _images = [];
+  List<String> _selectedCards = [];
+  List<bool> _listBooleans = [];
+  int _seleccion = 1;
+  int _indexCartaUno = 0;
+  int _indexCartaDos = 0;
+  String _cartaUno = '';
+  String _cartaDos = '';
 
   @override
   void initState() {
     super.initState();
     if (widget.numPares == 8) {
-      images = listaOchoPares;
-      images.shuffle();
-      listBooleans = List.filled(widget.numPares * 2, false);
+      _images = listaOchoPares;
+      _images.shuffle();
+      _listBooleans = List.filled(widget.numPares * 2, false);
     } else if (widget.numPares == 10) {
     } else {}
   }
@@ -53,59 +53,62 @@ class _GameScreenState extends State<GameScreen> {
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 4),
-                  itemCount: images.length,
+                  itemCount: _images.length,
                   itemBuilder: (context, index) {
-                    final img = images[index];
+                    final img = _images[index];
+                    if(index == 8){
+
+                    }
                     return FadeIn(
-                      delay: Duration(seconds: 1),
+                      delay: Duration(milliseconds: 500),
                       child: FlipCard(
-                        side: listBooleans[index] == false ? CardSide.BACK : CardSide.FRONT,
+                        side: _listBooleans[index] == false ? CardSide.FRONT : CardSide.BACK,
                           onFlip: () {
-                            if (selectedCards.length < 2) {
-                              if (seleccion == 1) {
+                            _listBooleans[index] = true;
+                            if (_selectedCards.length < 2) {
+                              if (_seleccion == 1) {
                                 setState(() {
-                                  cartaUno = img;
-                                  selectedCards.add(cartaUno);
-                                  listBooleans[index] = true;
-                                  indexCartaUno = index;
-                                  seleccion++;
+                                  _cartaUno = img;
+                                  _selectedCards.add(_cartaUno);
+                                  _indexCartaUno = index;
+                                  _seleccion++;
                                 });
                               } else {
                                 setState(() {
-                                  cartaDos = img;
-                                  selectedCards.add(cartaDos);
-                                  listBooleans[index] = true;
-                                  indexCartaDos = index;
-                                  seleccion++;
+                                  _cartaDos = img;
+                                  _selectedCards.add(_cartaDos);
+                                  
+                                  _indexCartaDos = index;
+                                  _seleccion++;
                                 });
                               }
                             }
                     
-                            if (selectedCards.length == 2) {
+                            if (_selectedCards.length == 2) {
                               // Si ambas cartas son iguales
-                              if (cartaUno == cartaDos) {
+                              if (_cartaUno == _cartaDos) {
                                 setState(() {
-                                  selectedCards.clear();
-                                  cartaUno = '';
-                                  cartaDos = '';
+                                  _selectedCards.clear();
+                                  _cartaUno = '';
+                                  _cartaDos = '';
                                 });
                               } else {
                                 Future.delayed(const Duration(seconds: 2), () {
                                   setState(() {
-                                    selectedCards.clear();
-                                    cartaUno = '';
-                                    cartaDos = '';
-                                    listBooleans[indexCartaUno] = false;
-                                    listBooleans[indexCartaDos] = false;
+                                    _selectedCards.clear();
+                                    _cartaUno = '';
+                                    _cartaDos = '';
+                                    _listBooleans[_indexCartaUno] = false;
+                                    _listBooleans[_indexCartaDos] = false;
                                   });
                                 });
                               }
                               setState(() {
-                                seleccion = 1;
+                                _seleccion = 1;
                               });
                             }
                           },
-                          flipOnTouch: selectedCards.length < 2,
+                          flipOnTouch: _listBooleans[index] == false,
                           front: const Card(child: Icon(Icons.question_mark, size: 40)),
                           back: ClipRRect(child: Image.asset('assets/$img', scale: 2.5))),
                     );
