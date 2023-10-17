@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_memorama/config/app_theme.dart';
-import 'presentation/screens/home_screen.dart';
-
+import 'package:flutter_memorama/presentation/screens/splash_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,7 +14,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: AppTheme().getTheme(),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen()
+      home: const SplashScreen()
     );
   }
 }

@@ -4,7 +4,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_memorama/db/database_helper.dart';
-import 'package:flutter_memorama/images_list.dart';
+import 'package:flutter_memorama/utils/images_list.dart';
 import 'package:flutter_memorama/presentation/screens/home_screen.dart';
 import 'package:intl/intl.dart';
 
