@@ -19,7 +19,7 @@ class _PregameScreenState extends State<PregameScreen> {
     
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cantidad de pares'),
+        title: const Text('Niveles'),
         centerTitle: true,
       ),
       body: Padding(
@@ -68,7 +68,7 @@ class _PregameScreenState extends State<PregameScreen> {
               child: FilledButton.icon(onPressed: (){
                Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => GameScreen(numPares: selectedValue)));
                 },
-                icon: const Icon(Icons.play_arrow_outlined),
+                icon: const Icon(Icons.play_arrow),
                 label: const Text('¡JUGAR!')
               ),
             )

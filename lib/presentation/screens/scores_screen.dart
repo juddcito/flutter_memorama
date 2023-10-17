@@ -47,7 +47,7 @@ class _ScoresScreenState extends State<ScoresScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Top Puntuaciones'),
+        title: const Text('Mejores puntuaciones'),
         centerTitle: true,
       ),
       body: Padding(
@@ -58,8 +58,8 @@ class _ScoresScreenState extends State<ScoresScreen> {
             FadeInRight(
               child: Card(
                 child: ListTile(
-                  leading: const Icon(Icons.emoji_events_outlined),
-                  title: const Text('Nivel: 8 pares',
+                  leading: const Icon(Icons.emoji_events_outlined, size: 32),
+                  title: const Text('8 pares',
                       style: TextStyle(fontSize: 18)),
                   subtitle: Text(puntuacionOchoPares),
                 ),
@@ -68,8 +68,8 @@ class _ScoresScreenState extends State<ScoresScreen> {
             FadeInRight(
               child: Card(
                 child: ListTile(
-                  leading: const Icon(Icons.emoji_events_outlined),
-                  title: const Text('Nivel: 10 pares',
+                  leading: const Icon(Icons.emoji_events_outlined, size: 32),
+                  title: const Text('10 pares',
                       style: TextStyle(fontSize: 18)),
                   subtitle: Text(puntuacionDiezPares),
                 ),
@@ -78,8 +78,8 @@ class _ScoresScreenState extends State<ScoresScreen> {
             FadeInRight(
               child: Card(
                 child: ListTile(
-                  leading: const Icon(Icons.emoji_events_outlined),
-                  title: const Text('Nivel: 12 pares',
+                  leading: const Icon(Icons.emoji_events_outlined, size: 32),
+                  title: const Text('12 pares',
                       style: TextStyle(fontSize: 18)),
                   subtitle: Text(puntuacionDocePares),
                 ),

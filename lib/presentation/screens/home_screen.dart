@@ -46,9 +46,22 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Center(
             child: Column(
               children: [
+
+                FadeInRightBig(
+                  child: const Text(
+                    'MEMORAMA',
+                    style: TextStyle(
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 45,),
           
                 // logo
                 FadeInRight(
+                  delay: const Duration(milliseconds: 1500),
                   child: ClipRRect(
                     child: Image.asset(
                       'assets/grape.png',
@@ -60,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 45,),
     
                 FadeInRight(
+                  delay: const Duration(milliseconds: 1500),
                   child: Container(
                     width: 250,
                     child: FilledButton.tonalIcon(
@@ -75,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 15,),
     
                 FadeInRight(
+                  delay: const Duration(milliseconds: 1500),
                   child: Container(
                     width: 250,
                     child: FilledButton.tonalIcon(
@@ -86,6 +101,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+
+                const Spacer(),
+
+                FadeIn(
+                  delay: const Duration(seconds: 1),
+                  child: const Padding(
+                    padding: EdgeInsets.only(bottom: 45),
+                    child: Chip(
+                      avatar: Icon(Icons.copyright),
+                      label: Text('Juan De Dios Sapién')
+                    ),
+                  ),
+                )
                 
           
               ],
