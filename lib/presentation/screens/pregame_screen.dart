@@ -62,14 +62,14 @@ class _PregameScreenState extends State<PregameScreen> {
                 },
               ),
             ),
-            SizedBox(height: 25,),
+            const SizedBox(height: 25,),
             Container(
               width: double.infinity,
-              child: FilledButton.tonalIcon(onPressed: (){
-               Navigator.push(context, MaterialPageRoute(builder:(context) => GameScreen(numPares: selectedValue)));
+              child: FilledButton.icon(onPressed: (){
+               Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => GameScreen(numPares: selectedValue)));
                 },
-                icon: Icon(Icons.start),
-                label: const Text('Empezar')
+                icon: const Icon(Icons.play_arrow_outlined),
+                label: const Text('¡JUGAR!')
               ),
             )
           ],
